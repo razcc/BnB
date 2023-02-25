@@ -84,32 +84,17 @@
 /******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ "./resources/js/login.js":
-/*!*******************************!*\
-  !*** ./resources/js/login.js ***!
-  \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-document.getElementById("login_btn").addEventListener("click", function () {
-  var login = document.getElementById("login_elem");
-  login.classList.remove("d-none");
-});
-
-/***/ }),
-
-/***/ 1:
+/******/ ([
+/* 0 */,
+/* 1 */
 /*!*************************************!*\
   !*** multi ./resources/js/login.js ***!
   \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BnB\resources\js\login.js */"./resources/js/login.js");
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'C:\\MAMP\\htdocs\\BnB\\resources\\js\\login.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 /***/ })
-
-/******/ });
+/******/ ]);

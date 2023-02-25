@@ -7,18 +7,19 @@
         <div class="row">
 
             {{-- MAP --}}
-            <div class="col-6 d-flex justify-content-center">
-                <h2 class="position-fixed">Map</h2>
+            <div class="col-6 d-flex justify-content-center position-fixed h-50">
+                <div id="map" style="width: 80%; height: 100%; border-radius: 2%"></div>
             </div>
 
             {{-- Form col right --}}
-            <form class="col-6" method="POST" action="{{ route('admin.apartments.store') }}" enctype="multipart/form-data">
+            <form class="col-6 ms-auto" method="POST" action="{{ route('admin.apartments.store') }}" enctype="multipart/form-data">
                 @csrf
 
                 {{-- NAME --}}
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input required min="5" max="30" id="name" class="form-control " type="text" name="name">
+                    <input required min="5" max="30" id="name" class="form-control " type="text"
+                        name="name">
                     @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -90,12 +91,13 @@
                 </div>
 
                 {{-- ADDRESS --}}
-                <div class="mb-3">
-                    <label class="form-label form-check-label" for="">Address</label>
+                <div id="search_cont" class="mb-3">
+                    <label for="">Address</label>
+                    {{-- <label class="form-label form-check-label" for="">Address</label>
                     <input required type="text" class="form-control" name="address" id="address">
                     @error('address')
                         <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    @enderror --}}
                 </div>
 
                 {{-- AVAILABLE --}}
@@ -133,5 +135,7 @@
         </div>
 
 
+
     </div>
+    
 @endsection
