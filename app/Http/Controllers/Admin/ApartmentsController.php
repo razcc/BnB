@@ -54,17 +54,16 @@ class ApartmentsController extends Controller
         $request->validate(
 
             [
-                'name' => 'required|max:30',
-                'description' => 'max:500',
+                'name' => 'required|min:5|max:30',
+                'description' => 'min:10|max:500',
                 'cover_image' => 'required',
-                'rooms' => 'required|max:50|min:1',
-                'beds' => 'max:50|min:1',
-                'bathrooms' => 'required|max:50|min:1',
-                'mq' => 'required|max:1000|min:1',
-                'accomodation' => 'max:50|min:1',
+                'rooms' => 'min:1|max:50',
+                'beds' => 'min:1|max:50',
+                'bathrooms' => 'min:1|max:50',
+                'mq' => 'min:1|max:1000',
+                'accomodation' => 'min:1|max:50',
                 'address' => 'required|max:50',
-                'available' => 'required',
-                'price' => 'required|min:1',
+                'price' => 'min:1',
             ]
 
         );
