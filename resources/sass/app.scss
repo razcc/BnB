@@ -1,0 +1,19 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Login
+@import 'login-register/login.scss';
+
+.transition_custom{
+      transition: all 1s;
+}
+
+.cursor_pointer{
+      cursor: pointer;
+}
