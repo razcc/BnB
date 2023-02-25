@@ -1,6 +1,4 @@
-@extends('layouts.app')
-@section('title', 'Show-Appartment')
-
+@extends('layouts.guest')
 
 @section('content')
     <div class="container-fluid">

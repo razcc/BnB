@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,10 +17,13 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
+// Rotte Admin
 Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('/', DashboardController::class);
     Route::resource('/apartments', ApartmentsController::class);
 });
 
-//Gestione rotte FRONT end
-Route::get('/', 'Guest\WelcomeController@index')->name('home');
+// Rotte Gest
+Route::get('/', 'Guest\WelcomeController@index')->name('guest');
+Route::get('/{id}', 'Guest\WelcomeController@show')->name('guest.show');
+

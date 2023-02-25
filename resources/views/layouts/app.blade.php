@@ -75,7 +75,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     {{-- HOme --}}
-                                    <a class="dropdown-item" href="{{ route('home') }}">
+                                    <a class="dropdown-item" href="{{ route('guest') }}">
                                         Home
                                     </a>
 

@@ -113,7 +113,7 @@ class ApartmentsController extends Controller
     public function show($id)
     {
         $apartment = Apartment::with('services')->findOrFail($id);
-        // dd($apartment);
+        //dd($apartment);
         return view('admin.pages.show', compact('apartment'));
     }
 
