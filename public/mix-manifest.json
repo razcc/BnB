@@ -1,5 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/searchTomTom.js": "/js/searchTomTom.js"
+    "/js/axios.js": "/js/axios.js",
+    "/js/create.js": "/js/create.js",
+    "/js/edit.js": "/js/edit.js",
+    "/js/show.js": "/js/show.js",
+    "/js/showGuest.js": "/js/showGuest.js"
 }

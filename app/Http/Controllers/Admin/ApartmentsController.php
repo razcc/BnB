@@ -64,6 +64,9 @@ class ApartmentsController extends Controller
                 'accomodation' => 'min:1|max:50',
                 'address' => 'required|max:50',
                 'price' => 'min:1',
+            ],
+            [
+                'address.required' => 'Attenzione selezionare un indirizzo prima di procedere',
             ]
 
         );
@@ -88,6 +91,8 @@ class ApartmentsController extends Controller
         $new_apartment->bathrooms = $request->input('bathrooms');
         $new_apartment->mq = $request->input('mq');
         $new_apartment->accomodation = $request->input('accomodation');
+        $new_apartment->lat = $request->input('lat');
+        $new_apartment->long = $request->input('long');
         $new_apartment->address = $request->input('address');
         $new_apartment->available = $request->input('available');
         $new_apartment->price = $request->input('price');
@@ -145,18 +150,19 @@ class ApartmentsController extends Controller
         $request->validate(
 
             [
-                'name' => 'required|max:30',
-                'description' => 'max:500',
+                'name' => 'required|min:5|max:30',
+                'description' => 'min:10|max:500',
                 'cover_image' => 'required',
-                'rooms' => 'required|max:50|min:1',
-                'beds' => 'max:50|min:1',
-                'bathrooms' => 'required|max:50|min:1',
-                'mq' => 'required|max:1000|min:1',
-                'accomodation' => 'max:50|min:1',
+                'rooms' => 'min:1|max:50',
+                'beds' => 'min:1|max:50',
+                'bathrooms' => 'min:1|max:50',
+                'mq' => 'min:1|max:1000',
+                'accomodation' => 'min:1|max:50',
                 'address' => 'required|max:50',
-                'available' => 'required',
-                'price' => 'required|min:1',
-
+                'price' => 'min:1',
+            ],
+            [
+                'address.required' => 'Attenzione selezionare un indirizzo prima di procedere',
             ]
 
         );

@@ -3,17 +3,15 @@
 
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
+    <div class="container-fluid pt-5">
+        <div class="row d-flex flex-row-reverse">
 
-            {{-- MAP --}}
-            <div class="col-6 d-flex justify-content-center position-fixed h-50">
-                <div id="map" style="width: 80%; height: 100%; border-radius: 2%"></div>
-            </div>
 
             {{-- Form col right --}}
-            <form class="col-6 ms-auto" method="POST" action="{{ route('admin.apartments.store') }}" enctype="multipart/form-data">
+            <form class="col-6" method="POST" action="{{ route('admin.apartments.store') }}"
+                enctype="multipart/form-data">
                 @csrf
+                <h1 class="text-center">Create Your New Apartment</h1>
 
                 {{-- NAME --}}
                 <div class="mb-3">
@@ -90,16 +88,6 @@
                     @enderror
                 </div>
 
-                {{-- ADDRESS --}}
-                <div id="search_cont" class="mb-3">
-                    <label for="">Address</label>
-                    {{-- <label class="form-label form-check-label" for="">Address</label>
-                    <input required type="text" class="form-control" name="address" id="address">
-                    @error('address')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror --}}
-                </div>
-
                 {{-- AVAILABLE --}}
                 <div class="mb-3">
                     <label class="form-label form-check-label" for="">Availability</label>
@@ -128,14 +116,25 @@
                     @endforeach
                 </div>
 
+                {{-- ADDRESS --}}
+                <div id="search_cont" class="mb-3 map_custom_style">
+                    <div id="map" class="map  " style="width: 500px; height: 500px;"></div>
+
+                    <input required min="1" max="50" type="hidden" id="address" name="address"
+                        type="text">
+                    @error('address')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    <input type="hidden" id="lat" name="lat" type="text">
+                    <input type="hidden" id="long" name="long" type="text">
+                </div>
+                {{-- Invio --}}
                 <button type="submit" class="btn btn-primary">Submit</button>
+
             </form>
 
-
         </div>
-
-
-
     </div>
-    
+    <!-- TomTOM JS -->
+    <script src="{{ asset('js/create.js') }}" defer></script>
 @endsection

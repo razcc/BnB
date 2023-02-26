@@ -49,10 +49,16 @@
 
 
             {{-- Mappa --}}
-            <div class="col-12 text-center mt-5">
-                <h2>Dove ti troverai:</h2>
+            <div class="col-12 mt-5 d-flex flex-column justify-content-center align-items-center">
+                <h2 class="mb-3">Dove ti troverai:</h2>
+                <input type="hidden"  value="{{ $apartment->lat }}" id="lat" type="text">
+                <input type="hidden"  value="{{ $apartment->long }}" id="long" type="text">
+
+                <div id="map" class="map" style="width: 500px; height: 500px;"></div>
+
             </div>
         </div>
 
     </div>
+
 @endsection

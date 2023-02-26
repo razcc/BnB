@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -11091,86 +11091,42 @@ return jQuery;
 
 /***/ }),
 
-/***/ "./resources/js/searchTomTom.js":
-/*!**************************************!*\
-  !*** ./resources/js/searchTomTom.js ***!
-  \**************************************/
+/***/ "./resources/js/_header.js":
+/*!*********************************!*\
+  !*** ./resources/js/_header.js ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 $(document).ready(function () {
-  document.getElementById('submit').disabled = true;
-  $(document).on('click', '.btn', function () {
-    var street = $('.street').val();
-    var streetNumber = $('.street-number').val();
-    var city = $('.city').val();
-    var cap = $('.cap').val();
-    var search = street + "%20" + streetNumber + "%20" + city + "%20" + cap;
-    $.ajax({
-      url: "https://api.tomtom.com/search/2/search/" + search + ".json?",
-      method: "GET",
-      data: {
-        limit: 1,
-        key: 'em63COYYAtRKh4NxqgeBdkGNHC8p1is8'
-      },
-      success: function success(data) {
-        if (data.results == 0) {
-          alert('controlla i campi dell\'indirizzo, non sono corretti');
-        } else {
-          document.getElementById('submit').disabled = false;
-          var lat = data.results[0].position.lat;
-          var _long = data.results[0].position.lon;
-          $('.lat').val(lat);
-          $('.long').val(_long);
-
-          // mappa
-          var address = [_long, lat];
-          tt.setProductInfo('<test>', '<beta>');
-          var map = tt.map({
-            key: 'RtqGWkFeMT3SHtv3t8oHCVrLAsAtxPLP',
-            container: 'map',
-            style: 'tomtom://vector/1/basic-main',
-            center: address,
-            zoom: 15
-          });
-          var marker = new tt.Marker().setLngLat(address).addTo(map);
-          var popupOffsets = {
-            top: [0, 0],
-            bottom: [0, -70],
-            'bottom-right': [0, -70],
-            'bottom-left': [0, -70],
-            left: [25, -35],
-            right: [-25, -35]
-          };
-          var addressFull = data.results[0].address.freeformAddress;
-          var popup = new tt.Popup({
-            offset: popupOffsets
-          }).setHTML("<b>" + addressFull + "</b>");
-          marker.setPopup(popup).togglePopup();
-        }
-      },
-      error: function error(request, state, _error) {
-        console.log(_error);
-      }
-    });
+  // search for desktop
+  $('.search-form-desktop .search-btn').attr('disabled', true);
+  $(document).on('keyup', '.search-form-desktop .search-bar', function () {
+    if ($('.search-form-desktop .search-bar').val() !== '') {
+      $('.search-form-desktop .search-btn').attr('disabled', false);
+    }
   });
-  $(document).on('click', '.map-button', function () {
-    console.log('ciao');
-    $('#map-map').removeClass('hide-map');
+
+  // search for mobile
+  $('.search-form-mobile .search-btn').attr('disabled', true);
+  $(document).on('keyup', '.search-form-mobile .search-bar', function () {
+    if ($('.search-form-mobile .search-bar').val() !== '') {
+      $('.search-form-mobile .search-btn').attr('disabled', false);
+    }
   });
 });
 
 /***/ }),
 
-/***/ 1:
-/*!********************************************!*\
-  !*** multi ./resources/js/searchTomTom.js ***!
-  \********************************************/
+/***/ 4:
+/*!***************************************!*\
+  !*** multi ./resources/js/_header.js ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BnB\resources\js\searchTomTom.js */"./resources/js/searchTomTom.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BnB\resources\js\_header.js */"./resources/js/_header.js");
 
 
 /***/ })

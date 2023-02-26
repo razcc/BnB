@@ -2,8 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -47,16 +49,13 @@
     <link rel="stylesheet" type="text/css"
         href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.23.0/maps/maps.css" />
 
-
-    <!-- TomTOM JS -->
-    <script src="{{ asset('js/searchTomTom.js') }}" defer></script>
 </head>
 
 <body>
     <div id="app">
 
         {{-- Nav BAR --}}
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm position-fixed w-100 z-3">
             <div class="container">
 
                 {{-- Logo --}}
@@ -115,6 +114,11 @@
                                         Dashboard
                                     </a>
 
+                                    {{-- MESSAGES --}}
+                                    <a class="dropdown-item" href="">
+                                        Messages
+                                    </a>
+
                                     {{-- LogOut --}}
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
@@ -139,7 +143,10 @@
     </div>
 
     {{-- MAP TOM TOM --}}
-    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.23.0/maps/maps-web.min.js"></script>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.52.0/maps/maps-web.min.js"></script>
+
+    {{-- Anticlear --}}
+    <script src="https://cdn.jsdelivr.net/gh/akjpro/form-anticlear/base.js"></script>
 </body>
 
 </html>

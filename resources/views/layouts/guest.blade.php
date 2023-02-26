@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
     <title>BoolBnB</title>
 
     {{-- Bootstrap --}}
@@ -18,9 +18,17 @@
 
     {{-- Style scss --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+
+    <!-- TomTOM JS -->
+    <script src="{{ asset('js/showGuest.js') }}" defer></script>
+
+    {{-- Map TOM TOM --}}
+    <link rel="stylesheet" type="text/css"
+        href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.23.0/maps/maps.css" />
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.23.0/maps/maps-web.min.js"></script>
 
 </head>
 
@@ -233,9 +241,17 @@
                     <form class="d-flex text-center" role="search">
                         <input class="form-control rounded-pill" type="search" placeholder="Search"
                             aria-label="Search">
-                        <button class="btn btn-login-register rounded-circle" type="submit"><i
-                                class="fa-solid fa-magnifying-glass"></i></button>
+                        <button class="d-flex align-items-center btn btn-login-register rounded-circle d-flex" type="submit">
+                            <i class="d-flex align-items-center fa-solid fa-magnifying-glass"></i>
+                        </button>
+                                                    {{-- Ricerca avanzata --}}
+                        <i onclick="
+                                var elem = document.getElementById('advanced_search_cont');
+                                elem.classList.toggle('advanced_search_cst');"
+                                class="cursor_pointer d-flex align-items-center ms-1 fa-solid fa-arrow-down-short-wide"></i>
                     </form>
+
+
                 </div>
 
                 <!-- Right Side Of Navbar -->
@@ -245,7 +261,7 @@
                         <div class="btn-group">
                             <button type="button" class="rounded-pill btn btn-light dropdown-toggle"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-bars "> </i>
+                                
                                 <i class="fa-solid fa-user ms-2"></i>
                             </button>
 
@@ -255,6 +271,7 @@
                                 <li>
                                     <button
                                         onclick="
+                                        
                                     document.getElementById('login_elem').classList.remove('log_custom_none');
                                     document.getElementById('register_elem').classList.add('log_custom_none');"
                                         id="login_btn" class="dropdown-item">
@@ -330,12 +347,15 @@
         @yield('content')
     </main>
 
-  
+
 
     {{-- Bootstrap --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
+
+    {{-- MAP TOM TOM --}}
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.52.0/maps/maps-web.min.js"></script>
 </body>
 
 </html>

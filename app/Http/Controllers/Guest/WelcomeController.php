@@ -13,10 +13,13 @@ class WelcomeController extends Controller
     {
         $apartments = Apartment::all();
 
+
+        $service = Service::all();
+
         $user = Auth::user();
 
 
-        return view('guest.welcome', compact('apartments', 'user'));
+        return view('guest.welcome', compact('apartments', 'user', 'service'));
     }
 
 
