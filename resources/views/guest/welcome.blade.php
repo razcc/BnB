@@ -5,82 +5,99 @@
         class=" transition_custom advanced_search_cst w-100 h-25 d-flex flex-column align-items-center justify-content-center py-3">
         <div class="mb-3">
             @foreach ($service as $item)
-                <button type="button" class="ms-4 btn btn-primary">{{ $item->name }}</button>
+                <div class="form-check">
+                    <input class="form-check-input service-checkbox" type="checkbox" name="service[]"
+                        value="{{ $item->id }}" id="service{{ $item->id }}">
+                    <label class="form-check-label" for="service{{ $item->id }}">
+                        {{ $item->name }}
+                    </label>
+                </div>
             @endforeach
         </div>
 
-        <div class="d-flex px-3">
+        <div class="d-flex px-3 flex-wrap">
+            {{-- Rooms --}}
             <div class="me-2">
-                <label for="rooms">Min number of Rooms:</label>
-                <input id="rooms" name="rooms" type="number" placeholder="min rooms">
+                <label for="min-rooms">Min number of Rooms:</label>
+                <input min="1" id="min-rooms" type="number" placeholder="min rooms">
             </div>
 
+            {{-- BEDS --}}
             <div class="me-2">
                 <label for="rooms">Min number of Beds:</label>
-                <input id="rooms" name="rooms" type="number" placeholder="min beds">
+                <input min="1" name="rooms" type="number" placeholder="min beds">
             </div>
 
+            {{-- BATHROOMS --}}
             <div class="me-2">
                 <label for="rooms">Bathrooms:</label>
-                <input id="rooms" name="rooms" type="number" placeholder="bathrooms">
+                <input min="1" name="rooms" type="number" placeholder="bathrooms">
             </div>
 
+            {{-- MIN MQ --}}
             <div class="me-2">
                 <label for="rooms">Min Mq:</label>
-                <input id="rooms" name="rooms" type="number" placeholder="min mq">
+                <input min="1" name="rooms" type="number" placeholder="min mq">
             </div>
 
+            {{-- MAX MQ --}}
             <div class="me-2">
                 <label for="rooms">Max Mq:</label>
-                <input id="rooms" name="rooms" type="number" placeholder="max mq">
+                <input name="rooms" type="number" placeholder="max mq">
             </div>
 
+            {{-- ACCOMODATION --}}
             <div class="me-2">
                 <label for="rooms">Max number of people:</label>
-                <input id="rooms" name="rooms" type="number" placeholder="accomodation">
+                <input name="rooms" type="number" placeholder="accomodation">
             </div>
 
+            {{-- PREZZO MASSIMO --}}
             <div class="me-2">
                 <label for="rooms">Price max:</label>
-                <input id="rooms" name="rooms" type="number" placeholder="price max">
+                <input name="rooms" type="number" placeholder="price max">
             </div>
 
+            {{-- PREZZO MINIMO --}}
             <div class="me-2">
                 <label for="rooms">Price min:</label>
-                <input id="rooms" name="rooms" type="number" placeholder="price min">
+                <input name="rooms" type="number" placeholder="price min">
             </div>
 
         </div>
 
 
     </div>
+
 
     {{-- Main --}}
     <div class="container-fluid transition_custom">
 
         {{-- Lista Tutti Appartamenti --}}
         <div class="row">
-            <div class="col-10 py-4 m-auto d-flex justify-content-center flex-wrap">
+            <div id="search_results" class="col-10 py-4 m-auto d-flex justify-content-center flex-wrap">
 
-                @foreach ($apartments as $elem)
+                {{-- @foreach ($apartments as $elem)
                     <a href="{{ route('guest.show', $elem['id']) }}">
 
                         <div class="card ms-3 mb-3" style="width: 18rem; height:18rem;">
-                            {{-- Cover --}}
+                            
                             <img src="{{ asset('uploads/cover_image/' . $elem->cover_image) }}" class="h-50 card-img-top"
                                 alt="cover_image">
 
-                            {{-- Descrizione --}}
+                            
                             <div class="card-body">
-                                {{-- Titolo --}}
+                                
                                 <h5 class="card-title">{{ $elem->name }}</h5>
                                 <div>{{ $elem->price }} a notte</div>
                             </div>
                         </div>
                     </a>
-                @endforeach
+                @endforeach --}}
 
             </div>
         </div>
+
     </div>
+    <script src="{{ asset('js/axios.js') }}"></script>
 @endsection

@@ -11,10 +11,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
+
     {{-- FontAwsome --}}
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.css'
         integrity='sha512-+ouAqATs1y4kpPMCHfKHVJwf308zo+tC9dlEYK9rKe7kiP35NiP+Oi35rCFnc16zdvk9aBkDUtEO3tIPl0xN5w=='
         crossorigin='anonymous' />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
     {{-- Style scss --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -29,6 +32,11 @@
     <link rel="stylesheet" type="text/css"
         href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.23.0/maps/maps.css" />
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.23.0/maps/maps-web.min.js"></script>
+
+
+    <script src="{{ asset('js/axios.js') }}"></script>
+
+
 
 </head>
 
@@ -239,16 +247,14 @@
                 {{-- Search --}}
                 <div>
                     <form class="d-flex text-center" role="search">
-                        <input class="form-control rounded-pill" type="search" placeholder="Search"
-                            aria-label="Search">
-                        <button class="d-flex align-items-center btn btn-login-register rounded-circle d-flex" type="submit">
-                            <i class="d-flex align-items-center fa-solid fa-magnifying-glass"></i>
-                        </button>
-                                                    {{-- Ricerca avanzata --}}
+                        <input type="text" name="search_text" id="search_text" class="form-control rounded-pill"
+                            placeholder="Search" aria-label="Search">
+
+                        {{-- Ricerca avanzata --}}
                         <i onclick="
                                 var elem = document.getElementById('advanced_search_cont');
                                 elem.classList.toggle('advanced_search_cst');"
-                                class="cursor_pointer d-flex align-items-center ms-1 fa-solid fa-arrow-down-short-wide"></i>
+                            class="cursor_pointer d-flex align-items-center ms-1 fa-solid fa-arrow-down-short-wide"></i>
                     </form>
 
 
@@ -257,13 +263,14 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav">
                     <!-- Authentication Links -->
-                    @guest
-                        <div class="btn-group">
-                            <button type="button" class="rounded-pill btn btn-light dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                
-                                <i class="fa-solid fa-user ms-2"></i>
-                            </button>
+                    <div class="btn-group">
+                        <button type="button" class="rounded-pill btn btn-light dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+
+                            <i class="fa-solid fa-user ms-2"></i>
+                        </button>
+                        @guest
+
 
                             {{-- Item DorpDown --}}
                             <ul class="dropdown-menu dropdown-menu-end">
@@ -293,15 +300,14 @@
                                 </li>
 
                             </ul>
-                        </div>
-                    @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
+                        @else
+                            {{-- <li class="nav-item dropdown"> --}}
+                            {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a> --}}
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 {{-- HOme --}}
                                 <a class="dropdown-item" href="{{ route('guest') }}">
                                     Home
@@ -333,8 +339,9 @@
                                     @csrf
                                 </form>
                             </div>
-                        </li>
-                    @endguest
+                            {{-- </li>s --}}
+                        @endguest
+                    </div>
                 </ul>
 
 
@@ -356,6 +363,9 @@
 
     {{-- MAP TOM TOM --}}
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.52.0/maps/maps-web.min.js"></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
+
+    <script src="{{ asset('js/axios.js') }}"></script>
 </body>
 
 </html>

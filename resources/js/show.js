@@ -6,7 +6,7 @@ var latNum = +latString.value
 var longNum = +longString.value
 console.log(latNum)
 console.log(longNum)
-var POS = [longNum,latNum]
+var POS = [longNum, latNum]
 
 
 var map = tt.map({

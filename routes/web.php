@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,4 +25,13 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->
 // Rotte Gest
 Route::get('/', 'Guest\WelcomeController@index')->name('guest');
 Route::get('/{id}', 'Guest\WelcomeController@show')->name('guest.show');
+
+// Axios Search
+Route::get('/api/search', 'Guest\SearchController@index')->name('search');
+
+// Axios Serices
+Route::get('api/search/services', 'Guest\SearchController@search')->name('services.search');
+
+// Axios Serices
+Route::get('api/search/rooms', 'Guest\SearchController@rooms')->name('rooms.search');
 
