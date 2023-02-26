@@ -43,7 +43,7 @@ class SearchController extends Controller
         return response()->json($data);
     }
 
-    // Search from checkbox input
+    // Search from Rooms
     public function rooms(Request $request)
     {
         $services = $request->input('services', []);
@@ -63,4 +63,49 @@ class SearchController extends Controller
         $data = $query->get();
         return response()->json($data);
     }
+
+    // Search from Beds
+    public function beds(Request $request)
+    {
+        $services = $request->input('services', []);
+        $beds = $request->input('beds', null);
+        $query = Apartment::query();
+
+        foreach ($services as $serviceId) {
+            $query->orWhereHas('services', function ($query) use ($serviceId) {
+                $query->where('id', $serviceId);
+            });
+        }
+
+        if (!is_null($beds)) {
+            $query->where('beds', '>=', $beds);
+        }
+
+        $data = $query->get();
+        return response()->json($data);
+    }
+
+
+    // Bath
+    public function bathrooms(Request $request)
+    {
+        $services = $request->input('services', []);
+        $bathrooms = $request->input('rooms', null);
+        $query = Apartment::query();
+    
+        foreach ($services as $serviceId) {
+            $query->orWhereHas('services', function ($query) use ($serviceId) {
+                $query->where('id', $serviceId);
+            });
+        }
+    
+        if (!is_null($bathrooms)) {
+            $query->where('bathrooms', '>=', $bathrooms);
+        }
+    
+        $data = $query->get();
+        return response()->json($data);
+    }
+    
+    
 }

@@ -32,6 +32,16 @@ Route::get('/api/search', 'Guest\SearchController@index')->name('search');
 // Axios Serices
 Route::get('api/search/services', 'Guest\SearchController@search')->name('services.search');
 
-// Axios Serices
+// Axios Rooms
 Route::get('api/search/rooms', 'Guest\SearchController@rooms')->name('rooms.search');
+
+// Axios Beds
+Route::get('api/search/beds', 'Guest\SearchController@beds')->name('beds.search');
+
+// Axios Bathrooms
+Route::get('api/search/bath', 'Guest\SearchController@bathrooms')->name('bath.search');
+
+
+
+
 

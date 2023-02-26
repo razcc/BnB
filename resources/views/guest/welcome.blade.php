@@ -24,15 +24,18 @@
 
             {{-- BEDS --}}
             <div class="me-2">
-                <label for="rooms">Min number of Beds:</label>
-                <input min="1" name="rooms" type="number" placeholder="min beds">
+                <label for="beds">Min number of Beds:</label>
+                <input min="1" name="beds" id="min-beds" type="number" placeholder="min beds">
             </div>
+
 
             {{-- BATHROOMS --}}
             <div class="me-2">
                 <label for="rooms">Bathrooms:</label>
-                <input min="1" name="rooms" type="number" placeholder="bathrooms">
+                <input min="1" name="rooms" id="min_bathrooms" type="number" placeholder="bathrooms">
             </div>
+            
+
 
             {{-- MIN MQ --}}
             <div class="me-2">
