@@ -363,6 +363,7 @@
 
     {{-- MAP TOM TOM --}}
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.52.0/maps/maps-web.min.js"></script>
+    
     <script src="{{ mix('js/app.js') }}" defer></script>
 
     <script src="{{ asset('js/axios.js') }}"></script>

@@ -1,7 +1,7 @@
 {
     "private": true,
     "scripts": {
-        "serve": "php -S 127.0.0.1:8001 -t public",
+        "serve": "php -S 127.0.0.1:800 -t public",
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "npm run development -- --watch",

@@ -26,8 +26,14 @@ var map = tt.map({
   center: ITALIA,
   zoom: 5,
 })
+
+
+
 var ttSearchBox = new tt.plugins.SearchBox(tt.services, options)
+
 var searchMarkersManager = new SearchMarkersManager(map)
+
+
 ttSearchBox.on("tomtom.searchbox.resultsfound", handleResultsFound)
 ttSearchBox.on("tomtom.searchbox.resultselected", handleResultSelection)
 ttSearchBox.on("tomtom.searchbox.resultfocused", handleResultSelection)

@@ -33,37 +33,37 @@ $(document).ready(function () {
                         }
                   });
             } else {
-                  $('#search_results').html('');
-
-            }
-      });
-
-      $.ajax({
-            url: "api/search",
-            method: "GET",
-            dataType: "json",
-            success: function (data) {
-                  console.log(data);
-
-                  var output = '';
-                  $.each(data, function (key, value) {
-                        output += '<a href="/' + value.id + '" >' +
-                              '<div class="card ms-3 mb-3" style="width: 18rem; height: 18rem;">' +
-                              '<img src="http://localhost:8000/uploads/cover_image/' + value.cover_image + '" class="card-img-top h-50" alt="cover image">' +
-                              '<div class="card-body">' +
-                              '<h5 class="card-title">' + value.name + '</h5>' +
-                              '<p class="card-text">' + value.description + '</p>' +
-                              '<div class="d-flex justify-content-between">' +
-                              '<div class="fw-bold">' + value.price + '$ a notte</div>' +
-                              '<div class="text-muted">' + value.address + '</div>' +
-                              '</div>' +
-                              '</div>' +
-                              '</div>' +
-                              '</a>';
+                  $.ajax({
+                        url: "api/search",
+                        method: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                              console.log(data);
+            
+                              var output = '';
+                              $.each(data, function (key, value) {
+                                    output += '<a href="/' + value.id + '" >' +
+                                          '<div class="card ms-3 mb-3" style="width: 18rem; height: 18rem;">' +
+                                          '<img src="http://localhost:8000/uploads/cover_image/' + value.cover_image + '" class="card-img-top h-50" alt="cover image">' +
+                                          '<div class="card-body">' +
+                                          '<h5 class="card-title">' + value.name + '</h5>' +
+                                          '<p class="card-text">' + value.description + '</p>' +
+                                          '<div class="d-flex justify-content-between">' +
+                                          '<div class="fw-bold">' + value.price + '$ a notte</div>' +
+                                          '<div class="text-muted">' + value.address + '</div>' +
+                                          '</div>' +
+                                          '</div>' +
+                                          '</div>' +
+                                          '</a>';
+                              });
+                              $('#search_results').html(output);
+                        }
                   });
-                  $('#search_results').html(output);
+
             }
       });
+
+
 
 
 
@@ -305,7 +305,7 @@ $(document).ready(function () {
                         dataType: "json",
                         success: function (data) {
                               console.log(data);
-
+F
                               var output = '';
                               $.each(data, function (key, value) {
                                     output += '<a href="/' + value.id + '" >' +

@@ -40,6 +40,7 @@ class SearchController extends Controller
         }
 
         $data = $query->get();
+        
         return response()->json($data);
     }
 
